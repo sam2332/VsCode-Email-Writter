@@ -175,44 +175,85 @@ YYYY-MM-DD_subject-keywords_revision.txt
 
 ## Usage Examples
 
-### Creating a New Email
+### Team Communication Email
 ```
-Request: "Write a professional business email requesting a meeting with the board about Q3 results. 
+User: "Write an email to my team about the migration of the website.org webserver on aug 2nd. 
+Use the casual-friendly.instructions.md guidelines."
+
+AI Response: I'll write a team communication email about the website.org webserver migration on August 2nd. 
+Since this is an internal team update, I'll use the casual-friendly style to maintain a warm, 
+approachable tone while providing the necessary technical information.
+
+Generated File: 2025-07-example-webserver-migration_v1.txt
+Content Highlights:
+- Warm greeting: "Hi team! Hope everyone's having a great week!"
+- Clear migration details with friendly explanations
+- Specific action items in conversational tone
+- Supportive closing: "Thanks for being such an awesome team"
+```
+
+### Professional Business Communication
+```
+User: "Write a professional business email requesting a meeting with the board about Q3 results. 
 Use the professional-business.instructions.md guidelines."
 
-Generated: 2025-07-11_board-meeting-q3-results_v1.txt
-Style: professional-business
-Content: Formal, structured email with proper salutations and clear purpose
+AI Response: I'll create a formal business email for your board meeting request using 
+professional business communication standards.
+
+Generated File: 2025-07-11_board-meeting-q3-results_v1.txt
+Content Highlights:
+- Formal salutation: "Dear Board Members"
+- Clear purpose statement in opening paragraph
+- Structured agenda and meeting details
+- Professional closing: "Best regards"
 ```
 
-### Revising an Email
+### Technical Issue Explanation
 ```
-Request: "Make the board meeting email more urgent and add specific metrics. 
-Use the urgent-crisis.instructions.md guidelines instead."
-
-Generated: 2025-07-11_board-meeting-q3-results_v2.txt
-Style: urgent-crisis (updated from professional-business)
-Content: Added urgency indicators and specific performance data
-```
-
-### Technical Translation
-```
-Request: "Explain the API rate limiting issue to the marketing team. 
+User: "Explain the API rate limiting issue to the marketing team. 
 Use the technical-to-general.instructions.md guidelines."
 
-Generated: 2025-07-11_api-rate-limiting-issue_v1.txt
-Style: technical-to-general
-Content: Uses highway toll booth analogy, focuses on user impact
+AI Response: I'll translate the technical API issue into terms the marketing team can 
+easily understand, using analogies and focusing on business impact.
+
+Generated File: 2025-07-11_api-rate-limiting-issue_v1.txt
+Content Highlights:
+- Highway toll booth analogy for rate limiting
+- Focus on user impact rather than technical details
+- Clear next steps for marketing team
+- No technical jargon or complex terminology
 ```
 
-### Using Custom Instruction Files
+### Customer Support Response
 ```
-Request: "Write a compliance notice about new data privacy requirements. 
-Use the legal-compliance.instructions.md guidelines."
+User: "Write a customer support email about a refund request for a cancelled order. 
+Use the customer-support.instructions.md guidelines."
 
-Generated: 2025-07-11_data-privacy-compliance_v1.txt
-Style: legal-compliance (custom style)
-Content: Formal legal language with required disclaimers and action items
+AI Response: I'll create an empathetic customer support response that acknowledges 
+their frustration and provides a clear resolution path.
+
+Generated File: 2025-07-11_customer-refund-request_v1.txt
+Content Highlights:
+- Empathetic opening: "I understand how frustrating this must be"
+- Clear explanation of refund process
+- Specific timeline and next steps
+- Offer for additional assistance
+```
+
+### Crisis Communication
+```
+User: "Write an urgent email about the database server outage affecting our main application. 
+Use the urgent-crisis.instructions.md guidelines."
+
+AI Response: I'll create an urgent crisis communication with clear urgency indicators 
+and immediate action focus.
+
+Generated File: 2025-07-11_database-server-outage_v1.txt
+Content Highlights:
+- Subject: [URGENT] Database Server Outage - Immediate Action Required
+- Immediate issue statement and impact assessment
+- Current status and resolution timeline
+- Clear escalation path and contact information
 ```
 
 ## Contributing
