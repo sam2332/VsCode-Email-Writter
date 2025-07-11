@@ -8,11 +8,11 @@ An AI-powered email writing assistant that generates professional emails in mult
 - [Features](#features)
 - [Communication Styles](#communication-styles)
 - [Getting Started](#getting-started)
+- [Important: Referencing Instruction Files](#important-referencing-instruction-files)
 - [Customizing Email Formats](#customizing-email-formats)
 - [File Management](#file-management)
 - [Usage Examples](#usage-examples)
 - [Contributing](#contributing)
-- [Customizing Email Formats](#customizing-email-formats)
 
 ## Overview
 
@@ -74,21 +74,68 @@ The system supports seven distinct communication styles, each with detailed guid
 - Access to the email writing guidelines in `.github/instructions/`
 
 ### Basic Usage
-1. **Request Email Generation**: Specify the communication style and context
+1. **Request Email Generation**: Specify the communication style and context, referencing the instruction files
 2. **AI Processing**: The system applies appropriate guidelines and generates content
 3. **Automatic Storage**: Email is saved with proper naming convention in plain text format
 4. **Review and Revise**: Make changes and save as new revisions as needed
 
 ### Example Request
 ```
-"Write a technical-to-general email explaining a database performance issue to stakeholders"
+"Write a technical-to-general email explaining a database performance issue to stakeholders. 
+Use the technical-to-general.instructions.md guidelines."
 ```
 
 The system will:
-- Apply technical-to-general communication guidelines
+- Load and apply the technical-to-general communication guidelines from the instruction file
 - Generate appropriate content with analogies and simple language
 - Save as `2025-07-11_database-performance-issue_v1.txt`
 - Store in plain text format without markdown
+
+### Proper Request Format
+When requesting emails, always include:
+- **Style specification**: Reference the exact instruction file (e.g., `professional-business.instructions.md`)
+- **Context**: What the email is about and who it's for
+- **Special requirements**: Any specific details or customizations needed
+
+**Format:**
+```
+"Write a [style-name] email about [topic] for [audience]. 
+Use the [style-name].instructions.md guidelines."
+```
+
+## Important: Referencing Instruction Files
+
+**Critical for Proper Email Generation**: Always include the specific instruction file name in your email requests to ensure the AI applies the correct communication style and formatting guidelines.
+
+### Why This Matters
+- **Consistency**: Ensures emails follow your organization's specific guidelines
+- **Customization**: Applies any modifications you've made to the instruction files
+- **Quality**: Guarantees the AI uses the complete style framework rather than generic formatting
+- **Predictability**: Produces consistent results based on your defined standards
+
+### Correct Request Format
+```
+"Write a [communication style] email about [topic] for [audience]. 
+Use the [style-name].instructions.md guidelines."
+```
+
+### Available Instruction Files
+- `technical-to-general.instructions.md` - For translating technical concepts
+- `professional-business.instructions.md` - For formal business communications  
+- `casual-friendly.instructions.md` - For warm, approachable communications
+- `urgent-crisis.instructions.md` - For time-sensitive crisis communications
+- `customer-support.instructions.md` - For empathetic customer service
+- `marketing-sales.instructions.md` - For prospect engagement and conversions
+- `executive-communication.instructions.md` - For strategic leadership communications
+
+### What Happens Without Instruction File Reference
+If you don't specify an instruction file, the AI may:
+- Use generic email formatting
+- Miss your organization's specific requirements
+- Apply inconsistent styling
+- Ignore customizations you've made to the instruction files
+
+**Always include the instruction file reference for best results!**
 
 ## File Management
 
@@ -130,7 +177,8 @@ YYYY-MM-DD_subject-keywords_revision.txt
 
 ### Creating a New Email
 ```
-Request: "Write a professional business email requesting a meeting with the board about Q3 results"
+Request: "Write a professional business email requesting a meeting with the board about Q3 results. 
+Use the professional-business.instructions.md guidelines."
 
 Generated: 2025-07-11_board-meeting-q3-results_v1.txt
 Style: professional-business
@@ -139,7 +187,8 @@ Content: Formal, structured email with proper salutations and clear purpose
 
 ### Revising an Email
 ```
-Request: "Make the board meeting email more urgent and add specific metrics"
+Request: "Make the board meeting email more urgent and add specific metrics. 
+Use the urgent-crisis.instructions.md guidelines instead."
 
 Generated: 2025-07-11_board-meeting-q3-results_v2.txt
 Style: urgent-crisis (updated from professional-business)
@@ -148,11 +197,22 @@ Content: Added urgency indicators and specific performance data
 
 ### Technical Translation
 ```
-Request: "Explain the API rate limiting issue to the marketing team"
+Request: "Explain the API rate limiting issue to the marketing team. 
+Use the technical-to-general.instructions.md guidelines."
 
 Generated: 2025-07-11_api-rate-limiting-issue_v1.txt
 Style: technical-to-general
 Content: Uses highway toll booth analogy, focuses on user impact
+```
+
+### Using Custom Instruction Files
+```
+Request: "Write a compliance notice about new data privacy requirements. 
+Use the legal-compliance.instructions.md guidelines."
+
+Generated: 2025-07-11_data-privacy-compliance_v1.txt
+Style: legal-compliance (custom style)
+Content: Formal legal language with required disclaimers and action items
 ```
 
 ## Contributing
@@ -210,6 +270,15 @@ To customize how emails are generated for any style:
    - Add company-specific language
    - Update examples and best practices
 4. **Save** your changes - the AI will immediately use your updated guidelines
+5. **Test** by requesting emails that specifically reference your modified instruction file
+
+### Example Request After Customization
+```
+"Write a professional business email about the quarterly review meeting. 
+Use the professional-business.instructions.md guidelines."
+```
+
+The AI will apply your customized guidelines from the instruction file, ensuring consistent formatting according to your organization's standards.
 
 ### Example: Customizing Professional Business Style
 
@@ -264,7 +333,11 @@ You can create entirely new communication styles by:
 1. **Copy** an existing instruction file as a template
 2. **Rename** it with your new style name (e.g., `legal-compliance.instructions.md`)
 3. **Modify** all sections to match your new style requirements
-4. **Test** by requesting emails in your new style
+4. **Test** by requesting emails that reference your new instruction file:
+   ```
+   "Write a legal compliance email about data retention policies. 
+   Use the legal-compliance.instructions.md guidelines."
+   ```
 
 ### Advanced Customization Examples
 
@@ -310,7 +383,11 @@ You can create entirely new communication styles by:
 
 After modifying instruction files:
 
-1. **Generate test emails** using your customized style
+1. **Generate test emails** using your customized style by specifically referencing the instruction file:
+   ```
+   "Write a customer support email about a refund request. 
+   Use the customer-support.instructions.md guidelines."
+   ```
 2. **Review output** to ensure changes are applied correctly
 3. **Iterate** on your instructions for better results
 4. **Share with team** for feedback and consistency
@@ -319,50 +396,12 @@ After modifying instruction files:
 
 - **Start small**: Make incremental changes rather than complete rewrites
 - **Test thoroughly**: Generate multiple email types to verify consistency
+- **Always reference instruction files**: Include the `.instructions.md` file name in your requests
 - **Document changes**: Keep notes on what modifications you made and why
 - **Version control**: Consider backing up original instruction files
-- **Team alignment**: Ensure all team members understand the customized formats
+- **Team alignment**: Ensure all team members understand the customized formats and how to reference them
 
-## Project Structure
 
-```
-email-writer/
-├── .github/
-│   ├── instructions/           # Communication style guidelines
-│   │   ├── casual-friendly.instructions.md
-│   │   ├── customer-support.instructions.md
-│   │   ├── executive-communication.instructions.md
-│   │   ├── marketing-sales.instructions.md
-│   │   ├── professional-business.instructions.md
-│   │   ├── technical-to-general.instructions.md
-│   │   └── urgent-crisis.instructions.md
-│   └── copilot_instructions.md # Main AI assistant guidelines
-├── emails/                     # Generated email storage (auto-created)
-│   └── [YYYY]/[MM]/           # Organized by date
-├── README.md                   # Project documentation
-└── QUICK_REFERENCE.md         # Style quick reference guide
-```
-
-## Support and Resources
-
-### Getting Help
-- **Issues**: Report bugs or request features via GitHub Issues
-- **Documentation**: Comprehensive guides in `.github/instructions/`
-- **Examples**: See generated emails in `/emails/` directory
-
-### Best Practices
-- **Choose Appropriate Style**: Match communication style to audience and context
-- **Review Generated Content**: Always review AI-generated emails before sending
-- **Maintain Consistency**: Use consistent styles within email threads
-- **Keep Versions**: Don't delete previous revisions - they provide valuable history
-
-### Quality Assurance
-Each generated email should meet these standards:
-- ✅ Appropriate style guidelines followed
-- ✅ Proper file naming convention used
-- ✅ Plain text format (no markdown)
-- ✅ Clear email structure maintained
-- ✅ Accurate revision numbering
 
 ---
 
