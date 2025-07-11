@@ -77,6 +77,7 @@ YYYY-MM-DD_subject-keywords_revision.txt
 - [ ] Revision number is accurate
 
 ## Important Notes
+- Always ask questions first. use numical indexing for clarity.
 - Always prioritize clarity and appropriate tone for the intended audience
 - When down-teching (technical-to-general), focus on benefits over features
 - Maintain consistency within email threads and revisions
